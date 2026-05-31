@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>WebChat Aero Edition - Login</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#003d7c",
+                        "on-surface-variant": "#424751",
+                        "surface-tint": "#185eb0",
+                        "on-background": "#081d2c",
+                        "outline-variant": "#c2c6d3",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-container": "#0054a6",
+                        "surface-container-highest": "#d0e5f9",
+                        "tertiary": "#344045",
+                        "on-tertiary-fixed-variant": "#3c494e",
+                        "on-primary": "#ffffff",
+                        "surface-variant": "#d0e5f9",
+                        "on-secondary-fixed": "#001e2e",
+                        "on-primary-fixed-variant": "#00468c",
+                        "secondary": "#00658d",
+                        "on-secondary-container": "#004867",
+                        "secondary-container": "#2fbcff",
+                        "on-tertiary-container": "#bfccd3",
+                        "on-secondary-fixed-variant": "#004c6c",
+                        "inverse-primary": "#a9c7ff",
+                        "primary-fixed": "#d6e3ff",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed-dim": "#a9c7ff",
+                        "inverse-surface": "#1f3242",
+                        "surface-container-high": "#d6ebff",
+                        "on-error-container": "#93000a",
+                        "inverse-on-surface": "#e6f2ff",
+                        "on-surface": "#081d2c",
+                        "secondary-fixed": "#c6e7ff",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#bcc8cf",
+                        "surface-container": "#e1f0ff",
+                        "surface-bright": "#f6f9ff",
+                        "surface": "#f6f9ff",
+                        "secondary-fixed-dim": "#83cfff",
+                        "on-primary-fixed": "#001b3d",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed": "#d8e4eb",
+                        "surface-dim": "#c8ddf0",
+                        "surface-container-low": "#ecf5ff",
+                        "background": "#f6f9ff",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#afcbff",
+                        "tertiary-container": "#4b575d",
+                        "outline": "#727783",
+                        "on-tertiary-fixed": "#111d22"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "padding-card": "1.25rem",
+                        "gutter-grid": "1.5rem",
+                        "component-inner": "0.5rem",
+                        "stack-gap": "0.75rem",
+                        "margin-page": "2rem"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "title-md": ["Inter"],
+                        "display-lg": ["Manrope"],
+                        "headline-lg-mobile": ["Manrope"],
+                        "headline-lg": ["Manrope"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+body {
+    background: 
+        radial-gradient(ellipse at 80% 20%, rgba(131, 207, 255, 0.5) 0%, rgba(42, 124, 189, 0) 60%),
+        radial-gradient(circle at 20% 90%, rgba(76, 184, 255, 0.4) 0%, rgba(16, 74, 130, 0) 50%),
+        linear-gradient(135deg, #1d6fa5 0%, #0d3d6b 50%, #041426 100%);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow-x: hidden;
+    margin: 0;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: -50%; left: -50%; width: 200%; height: 200%;
+    background: 
+        radial-gradient(ellipse at 50% 50%, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0) 40%),
+        conic-gradient(from 180deg at 50% 50%, rgba(255,255,255,0) 0deg, rgba(255,255,255,0.05) 45deg, rgba(255,255,255,0) 90deg, rgba(255,255,255,0) 360deg);
+    pointer-events: none;
+    z-index: -1;
+}
+
+@keyframes aero-light-sweep {
+    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+    100% { transform: translateX(200%) translateY(200%) rotate(45deg); }
+}
+
+.aero-glass {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.20) 0%,
+            rgba(120, 185, 230, 0.16) 35%,
+            rgba(10, 48, 85, 0.22) 100%
+        );
+    backdrop-filter: blur(24px) saturate(160%);
+    -webkit-backdrop-filter: blur(24px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.32);
+    border-top-color: rgba(255, 255, 255, 0.55);
+    border-left-color: rgba(255, 255, 255, 0.38);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.55),
+        inset 0 -18px 30px rgba(0, 40, 90, 0.18),
+        0 18px 40px rgba(0, 0, 0, 0.45);
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+/* Base reflection layer */
+.aero-glass::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: 
+        linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 40%),
+        linear-gradient(225deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 30%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Dynamic sweep layer */
+.aero-glass .sweep-layer {
+    opacity: 0.25;
+    animation: none;
+}
+
+/* Spotlight layer (for mouse tracking) */
+.aero-glass .spotlight-layer {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255,255,255,0.08) 0%, transparent 40%);
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.aero-glass:hover .spotlight-layer {
+    opacity: 1;
+}
+
+.aero-glass::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 50%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.aero-content { position: relative; z-index: 10; }
+
+.aero-input {
+    background-color: #f8fbff;
+    border: 1px solid #727783;
+    border-top-color: #424751;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 0 rgba(255, 255, 255, 0.25);
+    transition: all 0.2s ease;
+}
+
+.aero-input:focus {
+    outline: none;
+    background-color: #ffffff;
+    border-color: #2fbcff;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 6px rgba(47, 188, 255, 0.7);
+}
+
+.aero-btn-primary {
+    background: linear-gradient(to bottom, #7cd1ff 0%, #1e9bff 45%, #0060ba 50%, #002d5c 100%);
+    border: 1px solid #001b3d;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), inset 0 0 4px rgba(255, 255, 255, 0.4), 0 2px 5px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.8);
+    transition: all 0.1s ease;
+    position: relative;
+    overflow: hidden;
+    color: white;
+    border-radius: 6px;
+}
+
+.aero-btn-primary::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 48%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.1) 100%);
+    border-radius: 5px 5px 0 0;
+    pointer-events: none;
+}
+
+.aero-btn-primary:hover {
+    background: linear-gradient(to bottom, #a1e2ff 0%, #4cb1ff 45%, #0073e6 50%, #003e7a 100%);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), inset 0 0 8px rgba(124, 209, 255, 0.6), 0 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+.aero-btn-primary:active {
+    background: linear-gradient(to bottom, #002d5c 0%, #0060ba 50%, #1e9bff 60%, #7cd1ff 100%);
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.7), 0 1px 0 rgba(255, 255, 255, 0.2);
+    transform: translateY(1px);
+}
+
+.aero-btn-secondary {
+    background: linear-gradient(to bottom, #ffffff 0%, #eef3f7 45%, #d1dee6 50%, #b8c8d1 100%);
+    border: 1px solid #727783;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 1), 0 2px 4px rgba(0, 0, 0, 0.3);
+    transition: all 0.1s ease;
+    position: relative;
+    color: #081d2c;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.7);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.aero-btn-secondary::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 48%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.1) 100%);
+    border-radius: 5px 5px 0 0;
+    pointer-events: none;
+}
+
+.aero-navbar {
+    background: rgba(16, 42, 70, 0.3);
+    backdrop-filter: blur(20px) saturate(130%);
+    -webkit-backdrop-filter: blur(20px) saturate(130%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5), 0 2px 10px rgba(0,0,0,0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.aero-footer {
+    background: rgba(16, 42, 70, 0.3);
+    backdrop-filter: blur(20px) saturate(130%);
+    -webkit-backdrop-filter: blur(20px) saturate(130%);
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5), 0 -2px 10px rgba(0,0,0,0.4);
+    position: relative;
+    z-index: 50;
+}
+</style>
+</head>
+<body class="text-on-background font-body-lg flex flex-col min-h-screen">
+<!-- TopNavBar -->
+<header class="w-full top-0 sticky aero-navbar z-50">
+<div class="sweep-layer"></div>
+<div class="flex justify-between items-center w-full px-margin-page h-16 max-w-[1440px] mx-auto aero-content">
+<!-- Brand Logo -->
+<div class="font-headline-lg text-headline-lg text-white text-shadow-md italic font-bold" style="text-shadow: rgba(0, 0, 0, 0.8) 0px 1px 3px, rgba(255, 255, 255, 0.4) 0px 0px 8px;">
+            WebChat Aero Edition
+        </div>
+<!-- Navigation Links -->
+<nav class="hidden md:flex items-center gap-2">
+<a class="font-title-md text-title-md text-white hover:text-white px-4 py-1.5 transition-colors hover:bg-white/10 hover:shadow-inner rounded transition-all duration-300 active:scale-95" href="#" style="text-shadow: rgba(0, 0, 0, 0.8) 0px 1px 2px;">Home</a>
+<a class="font-title-md text-title-md aero-btn-primary px-4 py-1.5 transition-all active:scale-95" href="#">Login</a>
+<a class="font-title-md text-title-md text-white hover:text-white px-4 py-1.5 transition-colors hover:bg-white/10 hover:shadow-inner rounded transition-all duration-300 active:scale-95" href="#" style="text-shadow: rgba(0, 0, 0, 0.8) 0px 1px 2px;">Rooms</a>
+<a class="font-title-md text-title-md text-white hover:text-white px-4 py-1.5 transition-colors hover:bg-white/10 hover:shadow-inner rounded transition-all duration-300 active:scale-95" href="#" style="text-shadow: rgba(0, 0, 0, 0.8) 0px 1px 2px;">Chat</a>
+<a class="font-title-md text-title-md text-white hover:text-white px-4 py-1.5 transition-colors hover:bg-white/10 hover:shadow-inner rounded transition-all duration-300 active:scale-95" href="#" style="text-shadow: rgba(0, 0, 0, 0.8) 0px 1px 2px;">Profile</a>
+<a class="font-title-md text-title-md text-white hover:text-white px-4 py-1.5 transition-colors hover:bg-white/10 hover:shadow-inner rounded transition-all duration-300 active:scale-95" href="#" style="text-shadow: rgba(0, 0, 0, 0.8) 0px 1px 2px;">Settings</a>
+</nav>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 flex items-center justify-center p-margin-page z-10 w-full flex-grow">
+<!-- Central Login Panel -->
+<div class="aero-glass w-full max-w-md p-padding-card" id="login-card">
+<div class="sweep-layer"></div>
+<div class="spotlight-layer"></div>
+<div class="aero-content flex flex-col gap-stack-gap text-center">
+<div class="mb-4">
+<h1 class="font-headline-lg text-headline-lg text-white mb-2" style="text-shadow: rgba(0, 0, 0, 0.8) 0px 2px 4px, rgba(255, 255, 255, 0.4) 0px 0px 10px;">Bem-vindo de volta</h1>
+<p class="font-body-lg text-body-lg text-white/90" style="text-shadow: rgba(0, 0, 0, 0.8) 0px 1px 2px;">Entre para continuar</p>
+</div>
+<form class="flex flex-col gap-stack-gap text-left">
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-white px-1" for="email" style="text-shadow: rgba(0, 0, 0, 0.8) 0px 1px 2px;">Email</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">mail</span>
+<input class="aero-input w-full rounded py-2 pl-10 pr-4 font-body-sm text-on-background placeholder:text-outline-variant" id="email" placeholder="seu@email.com" type="email"/>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-white px-1" for="password" style="text-shadow: rgba(0, 0, 0, 0.8) 0px 1px 2px;">Senha</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">lock</span>
+<input class="aero-input w-full rounded py-2 pl-10 pr-4 font-body-sm text-on-background placeholder:text-outline-variant" id="password" placeholder="••••••••" type="password"/>
+</div>
+</div>
+<div class="flex justify-end mb-2">
+<a class="font-label-md text-label-md text-white hover:text-[#bde3ff] transition-colors" href="#" style="text-shadow: rgba(0, 0, 0, 0.8) 0px 1px 2px;">Esqueceu a senha?</a>
+</div>
+<button class="aero-btn-primary py-2.5 px-4 font-title-md text-title-md flex items-center justify-center gap-2" type="submit">
+                    Entrar <span class="material-symbols-outlined text-[20px]">login</span>
+</button>
+</form>
+<div class="flex items-center gap-4 my-2 opacity-80">
+<div class="flex-grow h-px bg-gradient-to-r from-transparent via-white/50 to-transparent shadow-[0_1px_1px_rgba(0,0,0,0.5)]"></div>
+<span class="font-label-md text-label-md text-white" style="text-shadow: rgba(0, 0, 0, 0.8) 0px 1px 2px;">OU</span>
+<div class="flex-grow h-px bg-gradient-to-r from-transparent via-white/50 to-transparent shadow-[0_1px_1px_rgba(0,0,0,0.5)]"></div>
+</div>
+<button class="aero-btn-secondary py-2.5 px-4 font-title-md text-title-md flex items-center justify-center gap-2" type="button">
+<img alt="Google Logo" class="w-5 h-5 drop-shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyZsAOCX_dy0lGC9F7nhKfc1X4sZ6wI1qQMJi6aBU7Kr1h0zMQlPvxNJzxPISzybkQbEsprAeBHYqCJoFW_3fIdmj-IMagHxUOtBiCiqNmvEZIjjWmnroHKxg7dgX0kmZvbNxwY2A9kR2bjkZSyJTxmosApqZ43wfItvO0QL8fGbFaM6Xo9NY-czC_Nnw6wfzlixX7-A67XukiA0U6EcPXjQnF15IG_2tyuLmiy5sF6TBeBPyYcm8rk4VzNVkwV0khinSwF5P278g"/>
+                Entrar com Google
+            </button>
+<div class="mt-4">
+<a class="font-body-sm text-body-sm text-white hover:text-[#bde3ff] transition-colors" href="#" style="text-shadow: rgba(0, 0, 0, 0.8) 0px 1px 2px;">Novo aqui? Crie sua conta</a>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-3 aero-footer">
+<div class="flex justify-center items-center gap-8 px-margin-page aero-content">
+<span class="text-white/80 font-label-md text-label-md" style="text-shadow: rgba(0, 0, 0, 0.8) 0px 1px 2px;">© 2026 — WebChat Aero Edition</span>
+<div class="flex gap-6">
+<a class="font-label-md text-label-md text-white/80 hover:text-white transition-colors" href="#" style="text-shadow: rgba(0, 0, 0, 0.8) 0px 1px 2px;">Privacy</a>
+<a class="font-label-md text-label-md text-white/80 hover:text-white transition-colors" href="#" style="text-shadow: rgba(0, 0, 0, 0.8) 0px 1px 2px;">Terms</a>
+<a class="font-label-md text-label-md text-white/80 hover:text-white transition-colors" href="#" style="text-shadow: rgba(0, 0, 0, 0.8) 0px 1px 2px;">Support</a>
+</div>
+</div>
+</footer>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const loginCard = document.getElementById('login-card');
+        if (loginCard) {
+            loginCard.addEventListener('mousemove', (e) => {
+                const rect = loginCard.getBoundingClientRect();
+                const x = ((e.clientX - rect.left) / rect.width) * 100;
+                const y = ((e.clientY - rect.top) / rect.height) * 100;
+                loginCard.style.setProperty('--mouse-x', `${x}%`);
+                loginCard.style.setProperty('--mouse-y', `${y}%`);
+            });
+        }
+    });
+</script>
+</body></html>
