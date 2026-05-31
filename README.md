@@ -7,7 +7,7 @@ AeroGlass UI Kit é um laboratório visual em React inspirado na estética Aero 
 ![Preview do AeroGlass UI Kit](./docs/preview.png)
 
 > Screenshot em breve.
-
+link: https://aero-glass-ui-kit.vercel.app/
 ## Objetivo
 
 O objetivo do projeto é estudar e testar, em uma base React real:
