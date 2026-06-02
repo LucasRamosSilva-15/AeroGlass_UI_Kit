@@ -1,0 +1,110 @@
+:root {
+  --aero-bg-dark: #041426;
+  --aero-bg-mid: #0d3d6b;
+  --aero-bg-light: #1d6fa5;
+  --aero-cyan: #2fbcff;
+  --aero-text-dark: #081d2c;
+  --aero-input-border: #727783;
+  --aero-input-border-top: #424751;
+  --aero-input-bg: #f8fbff;
+  --aero-white: #fff;
+  --aero-glass-border: rgba(255, 255, 255, 0.32);
+  --aero-glass-border-top: rgba(255, 255, 255, 0.55);
+  --aero-radius: 8px;
+  --aero-radius-button: 6px;
+  --aero-blur-glass: blur(24px) saturate(160%);
+  --aero-text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8), 0 0 8px rgba(255, 255, 255, 0.16);
+  --aero-title-shadow: 0 1px 3px rgba(0, 0, 0, 0.8), 0 0 8px rgba(255, 255, 255, 0.4);
+  --aero-title-shadow-strong: 0 2px 4px rgba(0, 0, 0, 0.8), 0 0 10px rgba(255, 255, 255, 0.4);
+  --aero-btn-primary-bg: linear-gradient(to bottom, #7cd1ff 0%, #1e9bff 45%, #0060ba 50%, #002d5c 100%);
+  --aero-btn-secondary-bg: linear-gradient(to bottom, #fff 0%, #eef3f7 45%, #d1dee6 50%, #b8c8d1 100%);
+  --aero-page-bg: linear-gradient(135deg, var(--aero-bg-light) 0%, var(--aero-bg-mid) 50%, var(--aero-bg-dark) 100%);
+  color-scheme: light;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--aero-bg-dark);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+textarea,
+select {
+  font: inherit;
+}
+
+.aero-content {
+  position: relative;
+  z-index: 10;
+}
+
+.font-body-sm {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.font-body-lg {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.font-title-md {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+}
+
+.font-headline-lg {
+  font-family:
+    Manrope, Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+  font-style: italic;
+  line-height: 40px;
+}
+
+.aero-title.font-headline-lg {
+  font-style: normal;
+}
+
+.font-label-md {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.aero-text-shadow,
+.aero-link,
+.aero-nav-link,
+.aero-footer-link {
+  text-shadow: var(--aero-text-shadow);
+}
+
+.aero-title,
+.aero-brand {
+  text-shadow: var(--aero-title-shadow);
+}
+
+.aero-title {
+  text-shadow: var(--aero-title-shadow-strong);
+}

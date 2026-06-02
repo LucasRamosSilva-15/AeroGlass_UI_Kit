@@ -31,7 +31,7 @@ export default function About() {
 
       <main className="aero-about-main">
         <div className="aero-about-wrap">
-          <AeroCard className="aero-about-hero aero-window aero-glass-active">
+          <AeroCard className="aero-about-hero aero-window aero-glass-active aero-reflection-bubbles">
             <WindowHeader title="Sobre o projeto" meta="AeroGlass UI Kit" />
             <div className="aero-about-hero-body">
               <div className="aero-about-hero-copy">
@@ -69,7 +69,7 @@ export default function About() {
           </AeroCard>
 
           <div className="aero-about-two-column">
-            <AeroCard className="aero-window aero-glass-light">
+            <AeroCard className="aero-window aero-glass-light aero-reflection-bubbles">
               <WindowHeader title="Identidade visual" meta="camadas" />
               <div className="aero-window-body">
                 <p className="aero-text-shadow font-body-sm text-white/74">
@@ -84,7 +84,7 @@ export default function About() {
               </div>
             </AeroCard>
 
-            <AeroCard className="aero-window aero-glass-dark">
+            <AeroCard className="aero-window aero-glass-dark aero-reflection-bubbles">
               <WindowHeader title="Tecnologias" meta="stack" />
               <div className="aero-window-body">
                 <div className="aero-about-tech-list">
@@ -133,7 +133,7 @@ export default function About() {
             </AeroCard>
           </div>
 
-          <AeroCard className="aero-about-author aero-glass-light">
+          <AeroCard className="aero-about-author aero-glass-light aero-reflection-bubbles">
             <div>
               <span className="aero-text-shadow font-label-md text-white/70">Autoria</span>
               <strong className="aero-card-title">Laboratório visual separado</strong>

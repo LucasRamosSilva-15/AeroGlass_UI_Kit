@@ -1,0 +1,89 @@
+@media (max-width: 760px) {
+  .aero-showcase-main,
+  .aero-login-main,
+  .aero-about-main,
+  .aero-glass-test-main,
+  .aero-home-main {
+    padding: 1rem;
+  }
+
+  .aero-home-hero-body,
+  .aero-home-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .aero-home-shortcut-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .aero-about-hero-body,
+  .aero-about-two-column,
+  .aero-about-bottom-grid,
+  .aero-about-author {
+    grid-template-columns: 1fr;
+  }
+
+  .aero-about-hero-body {
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .aero-about-principles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .aero-about-actions .aero-btn-primary,
+  .aero-about-actions .aero-btn-secondary {
+    flex: 1 1 160px;
+  }
+
+  .aero-panel-large {
+    grid-column: span 1;
+  }
+
+  .aero-chat-header,
+  .aero-chat-compose,
+  .aero-profile-card {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .aero-room-row {
+    grid-template-columns: 1fr;
+  }
+
+  .aero-grid-buttons {
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  }
+
+  .glass-test-wrap {
+    padding: 1rem;
+  }
+
+  .glass-test-hero-body,
+  .glass-test-card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .glass-test-criteria {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 520px) {
+  .aero-home-shortcut-grid,
+  .aero-home-test-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .aero-home-actions .aero-btn-primary,
+  .aero-home-actions .aero-btn-secondary,
+  .aero-home-actions .aero-btn-ghost {
+    flex: 1 1 100%;
+  }
+
+  .aero-about-principles {
+    grid-template-columns: 1fr;
+  }
+}

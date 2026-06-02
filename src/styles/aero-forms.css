@@ -1,0 +1,143 @@
+.aero-input {
+  border: 1px solid var(--aero-input-border);
+  border-top-color: var(--aero-input-border-top);
+  background-color: var(--aero-input-bg);
+  box-shadow:
+    inset 0 2px 4px rgba(0, 0, 0, 0.15),
+    0 1px 0 rgba(255, 255, 255, 0.25);
+  transition:
+    border-color 180ms ease,
+    background-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.aero-input:focus {
+  border-color: var(--aero-cyan);
+  outline: none;
+  background-color: var(--aero-white);
+  box-shadow:
+    inset 0 1px 3px rgba(0, 0, 0, 0.1),
+    0 0 6px rgba(47, 188, 255, 0.7);
+}
+
+.aero-control-stack {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.75rem;
+  min-height: 100%;
+}
+
+.aero-subpanel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.85rem;
+  min-height: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 8px;
+  padding: 1rem;
+  background:
+    radial-gradient(ellipse at 25% 0%, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0) 58%),
+    rgba(3, 20, 38, 0.14);
+  box-shadow: inset 0 1px 8px rgba(0, 0, 0, 0.2);
+}
+
+.aero-mini-panel-title {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.aero-mini-panel-title strong,
+.aero-mini-panel-title span {
+  color: rgba(255, 255, 255, 0.86);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.aero-mini-panel-title strong {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.aero-mini-panel-title span {
+  font-size: 12px;
+  opacity: 0.72;
+}
+
+.aero-avatar-strip {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.aero-check-row,
+.aero-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 14px;
+  line-height: 20px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.aero-check-row input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--aero-cyan);
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.55));
+}
+
+.aero-toggle input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.aero-toggle span {
+  position: relative;
+  width: 44px;
+  height: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  border-radius: 999px;
+  background:
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.28), rgba(10, 48, 85, 0.42));
+  box-shadow:
+    inset 0 1px 3px rgba(0, 0, 0, 0.45),
+    0 1px 0 rgba(255, 255, 255, 0.24);
+}
+
+.aero-toggle span::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  background: linear-gradient(to bottom, #fff, #b8c8d1);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    0 2px 4px rgba(0, 0, 0, 0.45);
+  transition: transform 160ms ease;
+}
+
+.aero-toggle input:checked + span {
+  background:
+    linear-gradient(to bottom, rgba(124, 209, 255, 0.54), rgba(0, 84, 166, 0.56));
+  box-shadow:
+    inset 0 1px 3px rgba(0, 0, 0, 0.35),
+    0 0 6px rgba(47, 188, 255, 0.45);
+}
+
+.aero-toggle input:checked + span::before {
+  transform: translateX(22px);
+}
+
+.aero-input:disabled {
+  color: rgba(8, 29, 44, 0.5);
+  background-color: rgba(226, 236, 246, 0.9);
+  cursor: not-allowed;
+  opacity: 0.75;
+}
