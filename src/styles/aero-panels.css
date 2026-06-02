@@ -62,7 +62,7 @@
   opacity: 1;
 }
 
-.aero-reflection-bubbles::before {
+.aero-reflection::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -73,21 +73,21 @@
   background-position: center;
   background-size: cover;
   mix-blend-mode: screen;
-  opacity: 0.25;
+  opacity: 0.10;
   pointer-events: none;
 }
 
-.aero-reflection-bubbles.aero-glass-light::before {
+.aero-reflection.aero-glass-light::before {
   opacity: 0.06;
   mix-blend-mode: soft-light;
 }
 
-.aero-reflection-bubbles.aero-glass-quiet::before {
+.aero-reflection.aero-glass-quiet::before {
   opacity: 0.055;
   mix-blend-mode: soft-light;
 }
 
-.aero-reflection-bubbles.aero-glass-dark::before {
+.aero-reflection.aero-glass-dark::before {
   opacity: 0.085;
 }
 

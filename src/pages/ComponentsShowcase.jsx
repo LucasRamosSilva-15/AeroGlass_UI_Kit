@@ -33,7 +33,7 @@ export default function ComponentsShowcase() {
 
       <main className="aero-showcase-main">
         <div className="aero-showcase-wrap">
-          <AeroCard className="aero-showcase-hero aero-reflection-bubbles">
+          <AeroCard className="aero-showcase-hero aero-reflection">
             <div className="aero-showcase-hero-content">
               <span className="aero-badge aero-badge-info">Bancada Aero</span>
               <h1 className="aero-title font-headline-lg text-white">AeroGlass UI Kit</h1>
@@ -54,7 +54,7 @@ export default function ComponentsShowcase() {
 
           <section className="aero-section">
             <SectionTitle title="Comandos" note="Botões com relevo, brilho superior e resposta de clique." />
-            <AeroCard className="aero-window aero-glass-dark aero-reflection-bubbles">
+            <AeroCard className="aero-window aero-glass-dark aero-reflection">
               <WindowHeader title="Barra de ações" meta="controles" />
               <div className="aero-grid aero-grid-buttons aero-window-body">
                 <AeroButton>Entrar</AeroButton>
@@ -70,7 +70,7 @@ export default function ComponentsShowcase() {
 
           <section className="aero-section">
             <SectionTitle title="Entrada de dados" note="Campos claros, embutidos e com foco ciano." />
-            <AeroCard className="aero-window aero-glass-light aero-reflection-bubbles">
+            <AeroCard className="aero-window aero-glass-light aero-reflection">
               <WindowHeader title="Conexão da sala" meta="controles" />
               <div className="aero-grid aero-grid-forms aero-window-body">
                 <AeroInput id="showcase-text" label="Nome da sala" placeholder="Aero Lobby" type="text" />
@@ -116,17 +116,17 @@ export default function ComponentsShowcase() {
           <section className="aero-section">
             <SectionTitle title="Painéis de sistema" note="Variações de vidro para janelas, resumos e áreas ativas." />
               <div className="aero-grid aero-grid-cards">
-              <AeroCard className="aero-panel-card aero-window aero-glass-quiet aero-reflection-bubbles">
+              <AeroCard className="aero-panel-card aero-window aero-glass-quiet aero-reflection">
                 <WindowHeader title="Nota da sessão" meta="texto" />
                 <div className="aero-panel-body">
                   <p className="aero-text-shadow font-body-sm text-white/82">A sala mantém o fundo visível e não vira bloco sólido.</p>
                 </div>
               </AeroCard>
-              <AeroCard className="aero-panel-card aero-glass-light">
+              <AeroCard className="aero-panel-card aero-glass-light aero-reflection">
                 <h3 className="aero-card-title">Resumo claro</h3>
                 <p className="aero-text-shadow font-body-sm text-white/80">Boa leitura para dados curtos sem perder o brilho frio.</p>
               </AeroCard>
-              <AeroCard className="aero-panel-card aero-glass-active">
+              <AeroCard className="aero-panel-card aero-glass-active aero-reflection">
                 <h3 className="aero-card-title">Sala selecionada</h3>
                 <p className="aero-text-shadow font-body-sm mb-4 text-white/80">Ações principais ficam mais próximas do conteúdo.</p>
                 <div className="flex flex-wrap gap-2">
@@ -146,12 +146,12 @@ export default function ComponentsShowcase() {
                 <span className="aero-text-shadow font-label-md text-white/75">Mensagens hoje</span>
                 <strong className="aero-text-shadow text-2xl text-white">128</strong>
               </AeroCard>
-              <AeroCard className="aero-panel-card aero-glass-light">
+              <AeroCard className="aero-panel-card aero-glass-light aero-reflection">
                 <span className="aero-icon-disc">★</span>
                 <h3 className="aero-card-title">Favorito</h3>
                 <p className="aero-text-shadow font-body-sm text-white/80">Ícones pequenos funcionam melhor que ilustrações grandes.</p>
               </AeroCard>
-              <AeroCard className="aero-panel-card aero-window aero-glass-quiet">
+              <AeroCard className="aero-panel-card aero-window aero-glass-quiet aero-reflection">
                 <WindowHeader title="Moldura de prévia" meta="imagem" />
                 <div className="aero-image-placeholder">
                   <span />
@@ -238,7 +238,7 @@ export default function ComponentsShowcase() {
 
           <section className="aero-section">
             <SectionTitle title="Prévia do chat" note="Módulo realista de conversa, apenas visual." />
-            <AeroCard className="aero-chat-preview aero-window aero-glass-active">
+            <AeroCard className="aero-chat-preview aero-window aero-glass-active aero-reflection">
               <WindowHeader title="Aero Lobby - conversa" meta="prévia" />
               <div className="aero-chat-header">
                 <div className="flex items-center gap-3">
@@ -264,7 +264,7 @@ export default function ComponentsShowcase() {
 
           <section className="aero-section">
             <SectionTitle title="Salas" note="Lista compacta com leitura de aplicativo desktop." />
-            <AeroCard className="aero-table-panel aero-window aero-glass-dark">
+            <AeroCard className="aero-table-panel aero-window aero-glass-dark aero-reflection">
               <WindowHeader title="Navegador de salas" meta="3 ativas" />
               <div className="aero-room-list">
                 {rooms.map((room) => (
@@ -298,7 +298,7 @@ export default function ComponentsShowcase() {
                 <div className="aero-skeleton" />
                 <div className="aero-skeleton aero-skeleton-short" />
               </AeroCard>
-              <AeroCard className="aero-panel-card aero-glass-light">
+              <AeroCard className="aero-panel-card aero-glass-light aero-reflection">
                 <p className="aero-text-shadow font-body-sm mb-3 text-white/80">Sincronizando contatos</p>
                 <div className="aero-progress">
                   <span style={{ width: "68%" }} />

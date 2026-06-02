@@ -35,7 +35,7 @@ export default function GlassTransparencyTest() {
           <div className="glass-test-orb glass-test-orb-pink" />
 
           <div className="glass-test-wrap">
-            <AeroCard className="glass-test-hero aero-window aero-glass-active">
+            <AeroCard className="glass-test-hero aero-window aero-glass-active aero-reflection">
               <div className="aero-window-titlebar">
                 <span>Teste de transparencia</span>
                 <small>backdrop-filter</small>

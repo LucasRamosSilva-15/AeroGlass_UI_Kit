@@ -10,7 +10,7 @@ export default function LoginDemo() {
       <AeroNavbar />
 
       <main className="aero-login-main">
-        <AeroCard className="w-full max-w-md p-5">
+        <AeroCard className="w-full max-w-md p-5 aero-reflection">
           <div className="flex flex-col gap-3 text-center">
             <header className="mb-4">
               <h1 className="aero-title font-headline-lg mb-2 text-white">

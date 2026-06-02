@@ -52,7 +52,7 @@ export default function Home() {
 
       <main className="aero-home-main">
         <div className="aero-home-wrap">
-          <AeroCard className="aero-home-hero aero-window aero-glass-active aero-reflection-bubbles">
+          <AeroCard className="aero-home-hero aero-window aero-glass-active aero-reflection">
             <WindowHeader title="Bem-vindo" meta="AeroGlass UI Kit" />
             <div className="aero-home-hero-body">
               <div className="aero-home-hero-copy">
@@ -92,7 +92,7 @@ export default function Home() {
             </div>
           </AeroCard>
 
-          <AeroCard className="aero-home-shortcuts aero-window aero-glass-dark aero-reflection-bubbles">
+          <AeroCard className="aero-home-shortcuts aero-window aero-glass-dark aero-reflection">
             <WindowHeader title="Atalhos rapidos" meta="navegacao" />
             <div className="aero-home-shortcut-grid">
               {shortcuts.map((item) => (
@@ -110,7 +110,7 @@ export default function Home() {
           </AeroCard>
 
           <section className="aero-home-grid">
-            <AeroCard className="aero-window aero-glass-light aero-reflection-bubbles">
+            <AeroCard className="aero-window aero-glass-light aero-reflection">
               <WindowHeader title="O que este kit testa" meta="componentes" />
               <div className="aero-home-test-grid">
                 {tests.map((item) => (
@@ -146,7 +146,7 @@ export default function Home() {
           </section>
 
           <div className="aero-home-statusbar">
-            <span>Tema: WebChat Aero Edition</span>
+            <span>Tema: AeroGlass UI Kit Edition</span>
             <span>Modo: laboratorio visual</span>
             <span>Render: React/Vite</span>
           </div>
