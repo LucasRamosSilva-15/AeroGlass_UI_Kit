@@ -1,27 +1,91 @@
 :root {
+  /* Tipografia do Sistema Windows Aero Glass */
+  --aero-font: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --aero-font-title: 10pt "Segoe UI", Tahoma, sans-serif;
+  --aero-font-display: 12pt "Segoe UI", Tahoma, sans-serif;
+
+  /* Cores Globais da Paleta Aero */
   --aero-bg-dark: #041426;
   --aero-bg-mid: #0d3d6b;
   --aero-bg-light: #1d6fa5;
   --aero-cyan: #2fbcff;
+  --aero-cyan-glow: #02edff;
   --aero-text-dark: #081d2c;
+  --aero-white: #ffffff;
+
+  /* Superfícies e Bases Metálicas da Área de Cliente */
+  --aero-surface: #f0f0f0;
+  --aero-surface-bright: #ffffff;
+  --aero-surface-inset: #e5e5e5;
+  --aero-el-bg: #f2f2f2;
+  --aero-el-bg-d: #f4f4f4;
+  --aero-el-bg-s-1: #ebebeb;
+  --aero-el-bg-s-2: #cfcfcf;
+
+  /* DWM Glass Colors & Afterglow */
+  --aero-glass-tint: rgba(116, 184, 252, 0.32);
+  --aero-glass-inactive: rgba(195, 210, 225, 0.28);
+  --aero-glass-fallback: rgba(225, 235, 245, 0.92);
+  --aero-blur: 10px;
+  --aero-saturate: 130%;
+  --aero-blur-glass: blur(var(--aero-blur)) saturate(var(--aero-saturate));
+
+  /* Bordas e Contornos Estruturais (Dual 1px Bevel) */
+  --aero-outer-border: rgba(10, 22, 38, 0.72);
+  --aero-outer-border-inactive: rgba(30, 45, 60, 0.55);
+  --aero-inner-highlight: rgba(255, 255, 255, 0.65);
+  --aero-client-border: rgba(0, 0, 0, 0.45);
+  --aero-glass-border: rgba(255, 255, 255, 0.35);
+  --aero-glass-border-top: rgba(255, 255, 255, 0.65);
+
+  --aero-el-bd: #8e8f8f;
+  --aero-el-bd-h: #3c7fb1;
+  --aero-el-bd-a: #2c628b;
+  --aero-el-bd-d: #adb2b5;
+  --aero-el-bdr: 3px;
+  --aero-radius: 8px;
+  --aero-radius-button: 4px;
+
+  /* Entradas de Formulário (Zenith Lighting) */
   --aero-input-border: #727783;
   --aero-input-border-top: #424751;
   --aero-input-bg: #f8fbff;
-  --aero-white: #fff;
-  --aero-glass-border: rgba(255, 255, 255, 0.32);
-  --aero-glass-border-top: rgba(255, 255, 255, 0.55);
-  --aero-radius: 8px;
-  --aero-radius-button: 6px;
-  --aero-blur-glass: blur(24px) saturate(160%);
-  --aero-text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8), 0 0 8px rgba(255, 255, 255, 0.16);
-  --aero-title-shadow: 0 1px 3px rgba(0, 0, 0, 0.8), 0 0 8px rgba(255, 255, 255, 0.4);
-  --aero-title-shadow-strong: 0 2px 4px rgba(0, 0, 0, 0.8), 0 0 10px rgba(255, 255, 255, 0.4);
-  --aero-btn-primary-bg: linear-gradient(to bottom, #7cd1ff 0%, #1e9bff 45%, #0060ba 50%, #002d5c 100%);
-  --aero-btn-secondary-bg: linear-gradient(to bottom, #fff 0%, #eef3f7 45%, #d1dee6 50%, #b8c8d1 100%);
+
+  /* Sombras e Reflexos Internos */
+  --aero-el-sd: inset 0 0 0 1px #ffffffcc, inset 0 1px 0 #fffffffa;
+  --aero-el-sd-a: inset 1px 1px 0 #00000033, inset -1px 1px 0 #0000001a;
+  --aero-window-shadow: 0 10px 32px rgba(0, 0, 0, 0.55), 0 2px 8px rgba(0, 0, 0, 0.35);
+
+  /* Shaders de Reflexo Angular do Vidro DWM (Aurora Streaks) */
+  --aero-reflection: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.42) 0%,
+    rgba(255, 255, 255, 0.14) 20%,
+    rgba(255, 255, 255, 0.0) 21%,
+    rgba(255, 255, 255, 0.20) 48%,
+    rgba(255, 255, 255, 0.0) 49%,
+    rgba(255, 255, 255, 0.08) 75%,
+    transparent 100%
+  );
+
+  /* Gradientes de Superfície dos Botões (Horizon Split a 49%/50%) */
+  --aero-btn-primary-bg: linear-gradient(180deg, #7cd1ff 0%, #1e9bff 49%, #0060ba 50%, #002d5c 100%);
+  --aero-btn-secondary-bg: linear-gradient(180deg, #ffffff 0%, #ebebeb 49%, #dddddd 50%, #cfcfcf 100%);
+  --aero-btn-danger-bg: linear-gradient(180deg, #ffb3b8 0%, #e44151 49%, #a90d1d 50%, #4a0008 100%);
+
+  /* Halos e Sombras Tipográficas de Leitura */
+  --aero-text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8), 0 0 8px rgba(255, 255, 255, 0.2);
+  --aero-title-shadow: 0 0 10px #ffffff, 0 0 8px #ffffff, 0 0 5px #ffffff, 0 1px 2px rgba(255, 255, 255, 0.85);
+  --aero-title-shadow-strong: 0 0 12px #ffffff, 0 0 8px #ffffff, 0 1px 3px rgba(0, 0, 0, 0.8);
+
+  /* Papel de Parede Aero Aurora */
   --aero-page-bg: linear-gradient(135deg, var(--aero-bg-light) 0%, var(--aero-bg-mid) 50%, var(--aero-bg-dark) 100%);
+
+  /* Ícone Vetorial de Busca */
+  --aero-search-icon: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cpath stroke='%232070b9' fill='none' stroke-width='1.5' d='M10.5 1C8.02 1 6 3.02 6 5.5a4.45 4.45 0 0 0 1 2.793L2.023 13.27l.704.71L7.707 9c.77.617 1.734 1 2.793 1 2.48 0 4.5-2.02 4.5-4.5S12.98 1 10.5 1zm0 1C12.438 2 14 3.57 14 5.5 14 7.438 12.437 9 10.5 9A3.494 3.494 0 0 1 7 5.5C7 3.562 8.563 2 10.5 2z'/%3E%3C/svg%3E");
+
   color-scheme: light;
-  font-family:
-    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: var(--aero-font);
   background: var(--aero-bg-dark);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -39,16 +103,14 @@ body,
 
 body {
   margin: 0;
+  font-family: var(--aero-font);
 }
 
 button,
-input {
-  font: inherit;
-}
-
+input,
 textarea,
 select {
-  font: inherit;
+  font-family: inherit;
 }
 
 .aero-content {
@@ -56,35 +118,31 @@ select {
   z-index: 10;
 }
 
+/* Tipografia Semântica Windows Segoe UI */
 .font-body-sm {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 400;
-  line-height: 20px;
+  line-height: 18px;
 }
 
 .font-body-lg {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 400;
-  line-height: 24px;
+  line-height: 22px;
 }
 
 .font-title-md {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 600;
-  line-height: 28px;
+  line-height: 24px;
 }
 
 .font-headline-lg {
-  font-family:
-    Manrope, Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-size: 32px;
+  font-family: var(--aero-font);
+  font-size: 28px;
   font-weight: 600;
-  font-style: italic;
-  line-height: 40px;
-}
-
-.aero-title.font-headline-lg {
-  font-style: normal;
+  line-height: 36px;
+  letter-spacing: -0.01em;
 }
 
 .font-label-md {
@@ -93,6 +151,7 @@ select {
   line-height: 16px;
 }
 
+/* Halos e Legibilidade */
 .aero-text-shadow,
 .aero-link,
 .aero-nav-link,
@@ -103,8 +162,4 @@ select {
 .aero-title,
 .aero-brand {
   text-shadow: var(--aero-title-shadow);
-}
-
-.aero-title {
-  text-shadow: var(--aero-title-shadow-strong);
 }

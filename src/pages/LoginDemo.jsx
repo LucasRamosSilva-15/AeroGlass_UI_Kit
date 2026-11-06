@@ -3,21 +3,24 @@ import AeroCard from "../components/AeroCard.jsx";
 import AeroFooter from "../components/AeroFooter.jsx";
 import AeroInput from "../components/AeroInput.jsx";
 import AeroNavbar from "../components/AeroNavbar.jsx";
+import AeroWindowHeader from "../components/AeroWindowHeader.jsx";
 
 export default function LoginDemo() {
   return (
-    <div className="aero-page">
+    <div className="aero-page flex min-h-screen flex-col">
       <AeroNavbar />
 
-      <main className="aero-login-main">
-        <AeroCard className="w-full max-w-md p-5 aero-reflection">
-          <div className="flex flex-col gap-3 text-center">
-            <header className="mb-4">
-              <h1 className="aero-title font-headline-lg mb-2 text-white">
+      <main className="aero-login-main flex flex-1 items-center justify-center p-4">
+        <AeroCard className="aero-window aero-glass-active w-full max-w-md shadow-2xl">
+          <AeroWindowHeader title="Autenticação de Usuário" meta="segurança" />
+          
+          <div className="flex flex-col gap-4 p-6 text-center">
+            <header className="mb-2">
+              <h1 className="aero-title font-headline-lg mb-1 text-white">
                 Bem-vindo de volta
               </h1>
-              <p className="aero-text-shadow font-body-lg text-white/90">
-                Entre para continuar
+              <p className="aero-text-shadow font-body-sm text-white/90">
+                Entre com suas credenciais para continuar
               </p>
             </header>
 
@@ -25,7 +28,7 @@ export default function LoginDemo() {
               <AeroInput
                 id="email"
                 icon="mail"
-                label="Email"
+                label="Email ou Usuário"
                 placeholder="seu@email.com"
                 type="email"
               />
@@ -37,32 +40,32 @@ export default function LoginDemo() {
                 type="password"
               />
 
-              <div className="mb-1 flex justify-end">
-                <a className="aero-link font-label-md" href="#">
+              <div className="flex justify-end">
+                <a className="aero-link text-xs" href="#">
                   Esqueceu a senha?
                 </a>
               </div>
 
-              <AeroButton type="submit" className="w-full">
-                Entrar
+              <AeroButton type="submit" className="w-full is-default mt-2">
+                <span>Entrar no Sistema</span>
                 <LoginIcon />
               </AeroButton>
             </form>
 
-            <div className="my-2 flex items-center gap-4 opacity-80">
+            <div className="my-1 flex items-center gap-4 opacity-80">
               <div className="aero-divider" />
-              <span className="aero-text-shadow font-label-md text-white">OU</span>
+              <span className="aero-text-shadow text-xs font-semibold text-white">OU</span>
               <div className="aero-divider" />
             </div>
 
             <AeroButton variant="secondary" type="button" className="w-full">
               <GoogleMark />
-              Entrar com Google
+              <span>Entrar com Conta Google</span>
             </AeroButton>
 
-            <div className="mt-4">
-              <a className="aero-link font-body-sm" href="#">
-                Novo aqui? Crie sua conta
+            <div className="mt-3">
+              <a className="aero-link text-xs" href="#">
+                Novo por aqui? Criar conta de acesso
               </a>
             </div>
           </div>
@@ -78,7 +81,7 @@ function LoginIcon() {
   return (
     <svg
       aria-hidden="true"
-      className="relative z-10 size-5"
+      className="relative z-10 size-4"
       fill="none"
       viewBox="0 0 24 24"
       stroke="currentColor"
@@ -93,7 +96,7 @@ function LoginIcon() {
 
 function GoogleMark() {
   return (
-    <svg aria-hidden="true" className="relative z-10 size-5 drop-shadow-sm" viewBox="0 0 24 24">
+    <svg aria-hidden="true" className="relative z-10 size-4 drop-shadow-sm" viewBox="0 0 24 24">
       <path
         fill="#4285F4"
         d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"

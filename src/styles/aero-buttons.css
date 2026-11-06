@@ -1,164 +1,382 @@
+/* ==========================================================================
+   AERO BUTTONS, CAPTION CONTROLS & COMMAND LINKS
+   Visual physical modeling according to DWM specifications.
+   Layout (flex, spacing, sizing) is handled by Tailwind.
+   ========================================================================== */
+
+/* Base Push Button */
 .aero-btn-primary,
 .aero-btn-secondary,
 .aero-btn-danger,
-.aero-btn-ghost {
+.aero-btn-ghost,
+.aero-button {
   position: relative;
-  overflow: hidden;
   border-radius: var(--aero-radius-button);
+  cursor: pointer;
+  user-select: none;
+  text-align: center;
+  outline: none;
   transition:
-    background 120ms ease,
-    box-shadow 120ms ease,
+    background 150ms ease,
+    border-color 150ms ease,
+    box-shadow 150ms ease,
     transform 120ms ease;
 }
 
+/* Reflexo Especular Superior do Botão (Gloss Horizon Lip) */
 .aero-btn-primary::before,
 .aero-btn-secondary::before,
 .aero-btn-danger::before,
-.aero-btn-ghost::before {
+.aero-btn-ghost::before,
+.aero-button::before {
   content: "";
   position: absolute;
   top: 0;
   right: 0;
   left: 0;
-  height: 48%;
+  height: 49%;
   pointer-events: none;
-  border-radius: 5px 5px 0 0;
+  border-radius: calc(var(--aero-radius-button) - 1px) calc(var(--aero-radius-button) - 1px) 0 0;
 }
 
+/* 1. Botão Primário (Azul Celeste Aero Cyan) */
 .aero-btn-primary {
-  color: var(--aero-white);
-  border: 1px solid #001b3d;
-  background: var(--aero-btn-primary-bg);
+  color: #ffffff;
+  border: 1px solid #00366b;
+  background: linear-gradient(180deg, #6fc8fc 0%, #1a92f0 49%, #005fb8 50%, #003366 100%);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.8),
-    inset 0 0 4px rgba(255, 255, 255, 0.4),
-    0 2px 5px rgba(0, 0, 0, 0.5);
-  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.8);
+    inset 0 1px 0 rgba(255, 255, 255, 0.85),
+    inset 0 0 2px rgba(255, 255, 255, 0.5),
+    0 2px 4px rgba(0, 0, 0, 0.35);
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.75);
 }
 
 .aero-btn-primary::before {
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.1) 100%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.08) 100%);
 }
 
 .aero-btn-primary:hover {
-  background: linear-gradient(to bottom, #a1e2ff 0%, #4cb1ff 45%, #0073e6 50%, #003e7a 100%);
+  border-color: #002244;
+  background: linear-gradient(180deg, #9ae0ff 0%, #3ea8ff 49%, #0077e6 50%, #004080 100%);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.9),
-    inset 0 0 8px rgba(124, 209, 255, 0.6),
-    0 2px 6px rgba(0, 0, 0, 0.6);
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    inset 0 0 8px rgba(124, 209, 255, 0.7),
+    0 0 8px rgba(47, 188, 255, 0.55);
 }
 
 .aero-btn-primary:active {
   transform: translateY(1px);
-  background: linear-gradient(to bottom, #002d5c 0%, #0060ba 50%, #1e9bff 60%, #7cd1ff 100%);
+  background: linear-gradient(180deg, #003366 0%, #005fb8 49%, #1a92f0 50%, #6fc8fc 100%);
   box-shadow:
-    inset 0 2px 6px rgba(0, 0, 0, 0.7),
-    0 1px 0 rgba(255, 255, 255, 0.2);
+    inset 0 2px 6px rgba(0, 0, 0, 0.6),
+    0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
-.aero-btn-secondary {
-  color: var(--aero-text-dark);
-  border: 1px solid var(--aero-input-border);
-  background: var(--aero-btn-secondary-bg);
+/* 2. Botão Secundário / Padrão (Metal Acrílico Neutro) */
+.aero-btn-secondary,
+.aero-button {
+  color: #1e1e1e;
+  border: 1px solid var(--aero-el-bd);
+  background: linear-gradient(180deg, #f5f5f5 0%, #ebebeb 49%, #dddddd 50%, #cfcfcf 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.65),
+    0 1px 3px rgba(0, 0, 0, 0.25);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.85);
+}
+
+.aero-btn-secondary::before,
+.aero-button::before {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.1) 100%);
+}
+
+.aero-btn-secondary:hover,
+.aero-button:hover {
+  border-color: var(--aero-el-bd-h);
+  background: linear-gradient(180deg, #eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 1),
-    0 2px 4px rgba(0, 0, 0, 0.3);
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+    0 0 5px rgba(60, 127, 177, 0.45);
 }
 
-.aero-btn-secondary::before {
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.1) 100%);
-}
-
-.aero-btn-secondary:hover {
-  background: linear-gradient(to bottom, #fff 0%, #f7fbff 44%, #dceaf2 50%, #c4d4df 100%);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 1),
-    0 2px 6px rgba(0, 0, 0, 0.38);
-}
-
-.aero-btn-secondary:active {
+.aero-btn-secondary:active,
+.aero-button:active {
   transform: translateY(1px);
-  box-shadow:
-    inset 0 2px 5px rgba(0, 0, 0, 0.25),
-    0 1px 0 rgba(255, 255, 255, 0.4);
+  background: linear-gradient(180deg, #e5f4fc 0%, #c4e5f6 49%, #98d1ef 50%, #68b3db 100%);
+  border-color: var(--aero-el-bd-a);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.25);
 }
 
+/* 3. Botão Perigo / Cancelar / Remover */
 .aero-btn-danger {
-  color: var(--aero-white);
+  color: #ffffff;
   border: 1px solid #4a0008;
-  background: linear-gradient(to bottom, #ffb3b8 0%, #e44151 45%, #a90d1d 50%, #4a0008 100%);
+  background: linear-gradient(180deg, #ffb3b8 0%, #e44151 49%, #a90d1d 50%, #4a0008 100%);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.78),
-    inset 0 0 4px rgba(255, 255, 255, 0.35),
-    0 2px 5px rgba(0, 0, 0, 0.5);
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    0 2px 4px rgba(0, 0, 0, 0.35);
   text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.85);
 }
 
 .aero-btn-danger::before {
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.08) 100%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.08) 100%);
 }
 
 .aero-btn-danger:hover {
-  background: linear-gradient(to bottom, #ffd2d5 0%, #f26070 45%, #c3192b 50%, #64000d 100%);
+  border-color: #64000d;
+  background: linear-gradient(180deg, #ffd2d5 0%, #f26070 49%, #c3192b 50%, #64000d 100%);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.9),
-    inset 0 0 8px rgba(255, 160, 170, 0.5),
-    0 2px 6px rgba(0, 0, 0, 0.6);
+    0 0 8px rgba(255, 80, 95, 0.6);
 }
 
 .aero-btn-danger:active {
   transform: translateY(1px);
-  background: linear-gradient(to bottom, #4a0008 0%, #a90d1d 50%, #e44151 60%, #ffb3b8 100%);
-  box-shadow:
-    inset 0 2px 6px rgba(0, 0, 0, 0.7),
-    0 1px 0 rgba(255, 255, 255, 0.2);
+  background: linear-gradient(180deg, #4a0008 0%, #a90d1d 49%, #e44151 50%, #ffb3b8 100%);
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.6);
 }
 
+/* 4. Botão Translúcido (Ghost Glass) */
 .aero-btn-ghost {
-  color: var(--aero-white);
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  background:
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.24) 0%, rgba(120, 185, 230, 0.12) 48%, rgba(2, 35, 70, 0.28) 100%);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.25) 0%,
+    rgba(255, 255, 255, 0.12) 49%,
+    rgba(10, 48, 85, 0.22) 50%,
+    rgba(2, 35, 70, 0.35) 100%
+  );
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.55),
-    0 2px 5px rgba(0, 0, 0, 0.35);
-  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(16px) saturate(140%);
-  -webkit-backdrop-filter: blur(16px) saturate(140%);
+    inset 0 1px 0 rgba(255, 255, 255, 0.65),
+    0 2px 5px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px) saturate(130%);
+  -webkit-backdrop-filter: blur(8px) saturate(130%);
 }
 
 .aero-btn-ghost::before {
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.06) 100%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.05) 100%);
 }
 
 .aero-btn-ghost:hover {
-  background:
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.34) 0%, rgba(124, 209, 255, 0.18) 48%, rgba(2, 50, 96, 0.34) 100%);
+  border-color: rgba(255, 255, 255, 0.6);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.35) 0%,
+    rgba(124, 209, 255, 0.2) 49%,
+    rgba(0, 61, 124, 0.28) 50%,
+    rgba(0, 40, 80, 0.4) 100%
+  );
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.72),
-    0 2px 6px rgba(0, 0, 0, 0.42);
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    0 0 8px rgba(124, 209, 255, 0.45);
 }
 
 .aero-btn-ghost:active {
   transform: translateY(1px);
-  box-shadow:
-    inset 0 2px 6px rgba(0, 0, 0, 0.45),
-    0 1px 0 rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.4);
 }
 
-.aero-btn-sm {
-  min-height: 30px;
-  padding: 0.25rem 0.75rem;
+/* Pulso Eletroluminescente (Aero Cyan Pulse para ação padrão) */
+@keyframes aero-pulse {
+  0% {
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.85),
+      0 0 2px rgba(51, 153, 255, 0.4),
+      inset 0 0 3px rgba(51, 153, 255, 0.4);
+    border-color: #53a3d8;
+  }
+  50% {
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.95),
+      0 0 10px rgba(51, 153, 255, 0.95),
+      inset 0 0 6px rgba(51, 153, 255, 0.75);
+    border-color: #2b7bb2;
+  }
+  100% {
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.85),
+      0 0 2px rgba(51, 153, 255, 0.4),
+      inset 0 0 3px rgba(51, 153, 255, 0.4);
+    border-color: #53a3d8;
+  }
+}
+
+.aero-btn-primary.is-default,
+.aero-button.default,
+button[type="submit"] {
+  animation: aero-pulse 2.2s infinite ease-in-out;
+}
+
+/* ==========================================================================
+   WINDOW CAPTION CONTROLS (Minimizar, Maximizar, Fechar Carmesim)
+   ========================================================================== */
+.aero-caption-controls {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  margin-top: -1px;
+  border: 1px solid rgba(20, 35, 55, 0.65);
+  border-top: none;
+  border-radius: 0 0 5px 5px;
+  overflow: hidden;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.55);
+}
+
+.aero-caption-btn {
+  width: 29px;
+  height: 19px;
+  border: none;
+  border-right: 1px solid rgba(20, 35, 55, 0.55);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.5) 0%,
+    rgba(255, 255, 255, 0.2) 49%,
+    rgba(0, 0, 0, 0.08) 50%,
+    rgba(255, 255, 255, 0.25) 100%
+  );
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.45);
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  line-height: 1;
+  padding: 0;
+  transition: background 120ms ease, box-shadow 120ms ease;
+}
+
+.aero-caption-btn:last-child {
+  border-right: none;
+}
+
+/* Hover Minimizar / Maximizar (Ciano Icy Blue) */
+.aero-caption-btn:hover {
+  background:
+    radial-gradient(circle at 50% 85%, rgba(110, 215, 255, 0.85), rgba(35, 130, 215, 0.65) 70%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.2) 50%, transparent 51%);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.75),
+    0 0 8px rgba(80, 195, 255, 0.85);
+}
+
+.aero-caption-btn:active {
+  background:
+    radial-gradient(circle at 50% 85%, #0bfdfa, transparent 65%),
+    linear-gradient(180deg, #86a7bc 50%, #092747 51%);
+}
+
+/* O Famoso Botão Fechar Carmesim */
+.aero-caption-btn.close,
+.aero-caption-btn.is-close {
+  width: 48px;
+  background: linear-gradient(
+    180deg,
+    rgba(242, 166, 158, 0.75) 0%,
+    rgba(218, 85, 72, 0.78) 49%,
+    rgba(181, 33, 21, 0.88) 50%,
+    rgba(227, 102, 87, 0.85) 100%
+  );
+}
+
+.aero-caption-btn.close:hover,
+.aero-caption-btn.is-close:hover {
+  background:
+    linear-gradient(#ffffff80, #ffffff4d 45%, #0000001a 50%, #0000001a 75%, #ffffff80),
+    radial-gradient(circle at 50% 160%, #f4e676 10% 20%, transparent 60%),
+    linear-gradient(180deg, #fb9d8b 0%, #ee6d56 49%, #d42809 50%, #c41800 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 230, 220, 0.85),
+    0 0 12px rgba(255, 65, 45, 0.95);
+}
+
+.aero-caption-btn.close:active,
+.aero-caption-btn.is-close:active {
+  background:
+    radial-gradient(circle at 50% 160%, #dcc03f 10% 20%, transparent 60%),
+    linear-gradient(180deg, #d1a894 0%, #b67562 49%, #7d0d01 50%, #600800 100%);
+}
+
+/* ==========================================================================
+   COMMAND LINKS (Assinatura do Windows Vista & 7 Task Dialogs)
+   ========================================================================== */
+.aero-command-link {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  width: 100%;
+  padding: 10px 14px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  text-align: left;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  transition: all 180ms ease;
+}
+
+.aero-command-link:hover {
+  background: linear-gradient(180deg, rgba(243, 248, 253, 0.75) 0%, rgba(225, 239, 250, 0.85) 100%);
+  border-color: #b8d6fb;
+  box-shadow: 0 0 6px rgba(116, 184, 252, 0.55), inset 0 1px 0 #ffffff;
+}
+
+.aero-command-link:active {
+  background: linear-gradient(180deg, #d3e7f7 0%, #b8dbf3 100%);
+  border-color: #72a9db;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.aero-command-link-arrow {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  background: radial-gradient(circle at 35% 35%, #58b6e9, #1b6da5);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.aero-command-link-arrow::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-left: 6px solid #ffffff;
+  margin-left: 2px;
+}
+
+.aero-command-link-heading {
   font-size: 14px;
-  line-height: 20px;
+  font-weight: 600;
+  color: #1e395b;
+  margin-bottom: 2px;
+}
+
+.aero-command-link-desc {
+  font-size: 12px;
+  color: #555555;
+  line-height: 15px;
+}
+
+/* Modificadores de Tamanho */
+.aero-btn-sm {
+  min-height: 26px;
+  padding: 0.2rem 0.65rem;
+  font-size: 12px;
 }
 
 .aero-btn-lg {
-  min-height: 46px;
-  padding: 0.625rem 1.35rem;
-  font-size: 24px;
-  line-height: 32px;
+  min-height: 42px;
+  padding: 0.5rem 1.25rem;
+  font-size: 18px;
 }
 
 .aero-divider {

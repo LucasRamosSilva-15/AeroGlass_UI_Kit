@@ -1,3 +1,37 @@
+/* ==========================================================================
+   AERO UTILITIES & SCROLLBARS
+   Metalic scrollbars & responsive design support.
+   ========================================================================== */
+
+/* Barra de Rolagem (Scrollbar) Estilo Windows 7 */
+::-webkit-scrollbar {
+  width: 15px;
+  height: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background: linear-gradient(to right, #e5e5e5, #f0f0f0 30%);
+  border-left: 1px solid #d5d5d5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, #f2f2f2 0%, #e3e3e3 40%, #d0d0d0 100%);
+  border: 1px solid #8e8f8f;
+  border-radius: 2px;
+  box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.85);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(90deg, #eaf6fd 0%, #d9f0fc 40%, #bee6fd 100%);
+  border-color: #3c7fb1;
+  box-shadow: inset 1px 1px 0 #ffffff, 0 0 4px rgba(51, 153, 255, 0.4);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(90deg, #e5f4fc 0%, #c4e5f6 40%, #98d1ef 100%);
+  border-color: #2c628b;
+}
+
 @media (max-width: 760px) {
   .aero-showcase-main,
   .aero-login-main,
@@ -5,85 +39,5 @@
   .aero-glass-test-main,
   .aero-home-main {
     padding: 1rem;
-  }
-
-  .aero-home-hero-body,
-  .aero-home-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .aero-home-shortcut-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .aero-about-hero-body,
-  .aero-about-two-column,
-  .aero-about-bottom-grid,
-  .aero-about-author {
-    grid-template-columns: 1fr;
-  }
-
-  .aero-about-hero-body {
-    gap: 1rem;
-    padding: 1rem;
-  }
-
-  .aero-about-principles {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .aero-about-actions .aero-btn-primary,
-  .aero-about-actions .aero-btn-secondary {
-    flex: 1 1 160px;
-  }
-
-  .aero-panel-large {
-    grid-column: span 1;
-  }
-
-  .aero-chat-header,
-  .aero-chat-compose,
-  .aero-profile-card {
-    align-items: stretch;
-    flex-direction: column;
-  }
-
-  .aero-room-row {
-    grid-template-columns: 1fr;
-  }
-
-  .aero-grid-buttons {
-    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-  }
-
-  .glass-test-wrap {
-    padding: 1rem;
-  }
-
-  .glass-test-hero-body,
-  .glass-test-card-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .glass-test-criteria {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-}
-
-@media (max-width: 520px) {
-  .aero-home-shortcut-grid,
-  .aero-home-test-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .aero-home-actions .aero-btn-primary,
-  .aero-home-actions .aero-btn-secondary,
-  .aero-home-actions .aero-btn-ghost {
-    flex: 1 1 100%;
-  }
-
-  .aero-about-principles {
-    grid-template-columns: 1fr;
   }
 }

@@ -2,153 +2,176 @@ import AeroButton from "../components/AeroButton.jsx";
 import AeroCard from "../components/AeroCard.jsx";
 import AeroFooter from "../components/AeroFooter.jsx";
 import AeroNavbar from "../components/AeroNavbar.jsx";
+import AeroWindowHeader from "../components/AeroWindowHeader.jsx";
 
 const shortcuts = [
   {
     title: "ComponentsShowcase",
-    text: "Teste visual de botoes, cards, inputs, chat e estados.",
+    text: "Bancada completa: botões gel, command links, breadcrumbs e vitrine de controles.",
     href: "/showcase",
   },
   {
     title: "LoginDemo",
-    text: "Tela de login usada como referencia visual final.",
+    text: "Tela de login aero com cartão centralizado e reflexo de iluminação.",
     href: "/login",
   },
   {
     title: "About",
-    text: "Pagina sobre o projeto e a identidade visual.",
+    text: "Especificação da identidade visual e fundamentação teórica do kit.",
     href: "/about",
   },
   {
     title: "Glass Test",
-    text: "Diagnostico de transparencia e backdrop-filter.",
+    text: "Laboratório de diagnóstico óptico de transparência, saturação e blur.",
     href: "/glass-test",
   },
 ];
 
 const tests = [
   {
-    title: "Vidro translucido",
-    text: "Fundos visiveis atraves dos paineis com blur e saturacao.",
+    title: "Vidro Translúcido DWM",
+    text: "Substrato visível sob as janelas com 10px de desfoque gaussiano e 130% de saturação.",
   },
   {
-    title: "Controles fisicos",
-    text: "Botoes com brilho superior, relevo e estado pressionado.",
+    title: "Controles com Relevo",
+    text: "Horizon-split a 49%/50% em botões e resposta tátil de clique.",
   },
   {
-    title: "Janelas Aero",
-    text: "Titlebars, paineis internos e bordas luminosas.",
+    title: "Janelas e Chanfros Duplos",
+    text: "Borda externa de oclusão de 1px com traço interno especular luminoso.",
   },
   {
-    title: "Consistencia visual",
-    text: "Componentes seguindo a mesma paleta e densidade.",
+    title: "Halos de Leitura Segoe UI",
+    text: "Tipografia protegida por sombra radial multicamada para leitura sobre qualquer imagem.",
   },
 ];
 
 export default function Home() {
   return (
-    <div className="aero-page">
+    <div className="aero-page flex min-h-screen flex-col">
       <AeroNavbar />
 
-      <main className="aero-home-main">
-        <div className="aero-home-wrap">
-          <AeroCard className="aero-home-hero aero-window aero-glass-active aero-reflection">
-            <WindowHeader title="Bem-vindo" meta="AeroGlass UI Kit" />
-            <div className="aero-home-hero-body">
-              <div className="aero-home-hero-copy">
+      <main className="aero-home-main flex-1 px-4 py-8 md:px-8">
+        <div className="aero-home-wrap mx-auto flex max-w-[1200px] flex-col gap-8">
+          
+          {/* Hero Card */}
+          <AeroCard className="aero-window aero-glass-active">
+            <AeroWindowHeader title="Painel Central do Sistema" meta="AeroGlass UI Kit 7.0" />
+            <div className="p-6 md:p-8 flex flex-col md:flex-row items-center gap-8 justify-between">
+              <div className="flex flex-col gap-4 max-w-2xl">
                 <h1 className="aero-title font-headline-lg text-white">AeroGlass UI Kit</h1>
-                <p className="aero-text-shadow font-title-md text-white/90">
-                  Interface experimental inspirada no Windows 7 Aero Glass.
+                <p className="aero-text-shadow font-title-md text-white/95">
+                  Engenharia visual e skeuomorfismo inspirados no Windows 7 Aero Glass.
                 </p>
-                <p className="aero-text-shadow font-body-sm text-white/82">
-                  Explore componentes React com vidro translucido, botoes em relevo, paineis com
-                  profundidade, inputs embutidos e uma linguagem visual classica de software desktop.
+                <p className="aero-text-shadow font-body-sm text-white/85 leading-relaxed">
+                  Explore componentes com vidro translúcido, botões em relevo com corte no horizonte,
+                  janelas com chanfros especulares duplos de 1px e controles embutidos modelados conforme
+                  a física de renderização do Desktop Window Manager.
                 </p>
-                <div className="aero-home-actions">
-                  <AeroButton asLink href="/showcase">
-                    Ver componentes
+                <div className="flex flex-wrap items-center gap-3 pt-2">
+                  <AeroButton asLink href="/showcase" className="is-default">
+                    Ver Componentes
                   </AeroButton>
                   <AeroButton asLink href="/login" variant="secondary">
                     Ver LoginDemo
                   </AeroButton>
                   <AeroButton asLink href="/about" variant="ghost">
-                    Sobre o projeto
+                    Sobre o Projeto
                   </AeroButton>
                 </div>
               </div>
 
-              <div className="aero-home-status">
-                <div className="aero-home-status-titlebar">
-                  <span>Status do kit</span>
-                  <small>ativo</small>
+              {/* Status Box */}
+              <div className="aero-window aero-glass-dark w-full md:w-80 shrink-0">
+                <div className="px-3 py-1.5 border-b border-white/20 flex justify-between items-center text-xs text-white/90 font-medium">
+                  <span>Status do Kit</span>
+                  <span className="text-emerald-300">● Ativo</span>
                 </div>
-                <div className="aero-home-status-body">
-                  <StatusRow label="Versao" value="1.0 experimental" />
-                  <StatusRow label="Base visual" value="Aero Glass" />
-                  <StatusRow label="Frontend" value="React + Tailwind CSS v4" />
-                  <StatusRow label="Estado" value="em desenvolvimento" />
+                <div className="p-4 flex flex-col gap-2.5 text-xs text-white/85">
+                  <StatusRow label="Versão" value="7.0 DWM Edition" />
+                  <StatusRow label="Base Visual" value="Aero Glass / Frutiger Aero" />
+                  <StatusRow label="Pipeline CSS" value="CSS Puro (Visual) + Tailwind (Layout)" />
+                  <StatusRow label="Estado" value="Produção e Demonstração" />
                 </div>
               </div>
             </div>
           </AeroCard>
 
-          <AeroCard className="aero-home-shortcuts aero-window aero-glass-dark aero-reflection">
-            <WindowHeader title="Atalhos rapidos" meta="navegacao" />
-            <div className="aero-home-shortcut-grid">
+          {/* Atalhos Rápidos */}
+          <AeroCard className="aero-window aero-glass-dark">
+            <AeroWindowHeader title="Atalhos Rápidos de Navegação" meta="explorar" />
+            <div className="p-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               {shortcuts.map((item) => (
-                <div className="aero-home-shortcut-card" key={item.title}>
+                <div
+                  className="p-4 rounded border border-white/15 bg-white/5 hover:bg-white/10 transition-colors flex flex-col justify-between gap-3"
+                  key={item.title}
+                >
                   <div>
-                    <h2 className="aero-card-title">{item.title}</h2>
-                    <p className="aero-text-shadow font-body-sm text-white/76">{item.text}</p>
+                    <h2 className="aero-card-title text-white font-semibold text-sm mb-1">{item.title}</h2>
+                    <p className="aero-text-shadow font-body-sm text-white/75 text-xs">{item.text}</p>
                   </div>
-                  <AeroButton asLink className="aero-btn-sm" href={item.href}>
-                    Abrir
+                  <AeroButton asLink className="aero-btn-sm self-start" href={item.href}>
+                    Abrir Página
                   </AeroButton>
                 </div>
               ))}
             </div>
           </AeroCard>
 
-          <section className="aero-home-grid">
-            <AeroCard className="aero-window aero-glass-light aero-reflection">
-              <WindowHeader title="O que este kit testa" meta="componentes" />
-              <div className="aero-home-test-grid">
+          {/* O que o kit testa + Regras */}
+          <section className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <AeroCard className="aero-window aero-glass-light lg:col-span-2">
+              <AeroWindowHeader title="Fundamentos Ópticos Validados" meta="regras" />
+              <div className="p-5 grid grid-cols-1 md:grid-cols-2 gap-4">
                 {tests.map((item) => (
-                  <div className="aero-home-test-card" key={item.title}>
-                    <span className="aero-text-shadow font-label-md text-white/72">{item.title}</span>
-                    <p className="aero-text-shadow font-body-sm text-white/82">{item.text}</p>
+                  <div className="p-3.5 rounded border border-white/20 bg-white/10 flex flex-col gap-1.5" key={item.title}>
+                    <span className="aero-text-shadow font-semibold text-sm text-white">{item.title}</span>
+                    <p className="aero-text-shadow text-xs text-white/80 leading-relaxed">{item.text}</p>
                   </div>
                 ))}
               </div>
             </AeroCard>
 
-            <div className="aero-home-side-stack">
+            <div className="flex flex-col gap-6">
               <AeroCard className="aero-window aero-glass-dark">
-                <WindowHeader title="Console de sessao" meta="boot" />
-                <div className="aero-home-console">
+                <AeroWindowHeader title="Console de Sessão" meta="boot" />
+                <div className="p-4 flex flex-col gap-1.5 text-xs font-mono text-cyan-200">
                   <span>[ok] design.md carregado</span>
-                  <span>[ok] tema AeroGlass ativo</span>
-                  <span>[ok] componentes principais disponiveis</span>
-                  <span>[dev] novas telas em validacao</span>
+                  <span>[ok] pipeline DWM inicializado</span>
+                  <span>[ok] horizon-split 49%/50% ativo</span>
+                  <span>[ok] command links registrados</span>
                 </div>
               </AeroCard>
 
               <AeroCard className="aero-window aero-glass-quiet">
-                <WindowHeader title="Regras visuais" meta="ambiente" />
-                <div className="aero-home-rules">
-                  <span>Nao usar visual SaaS moderno</span>
-                  <span>Nao remover titlebars</span>
-                  <span>Nao transformar vidro em bloco solido</span>
-                  <span>Nao usar botoes flat</span>
+                <AeroWindowHeader title="Diretrizes de UI/UX" meta="normas" />
+                <div className="p-4 flex flex-col gap-2 text-xs text-white/85">
+                  <div className="flex items-center gap-2">
+                    <span className="text-emerald-400">✔</span>
+                    <span>CSS Puro governa vidro, reflexos e física</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-emerald-400">✔</span>
+                    <span>Tailwind CSS governa grid, flex e espaçamentos</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-emerald-400">✔</span>
+                    <span>Titlebars com botões de legenda preservados</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-emerald-400">✔</span>
+                    <span>Halos multicamada mantêm textos legíveis</span>
+                  </div>
                 </div>
               </AeroCard>
             </div>
           </section>
 
-          <div className="aero-home-statusbar">
-            <span>Tema: AeroGlass UI Kit Edition</span>
-            <span>Modo: laboratorio visual</span>
-            <span>Render: React/Vite</span>
+          {/* Rodapé Interno da Página */}
+          <div className="flex flex-wrap items-center justify-between text-xs text-white/75 px-2 pt-2 border-t border-white/15">
+            <span>Tema: AeroGlass UI Kit Windows 7 Edition</span>
+            <span>Composição: DWM 5-Layer Stack</span>
+            <span>Engine: React + Tailwind CSS v4</span>
           </div>
         </div>
       </main>
@@ -158,20 +181,11 @@ export default function Home() {
   );
 }
 
-function WindowHeader({ title, meta }) {
-  return (
-    <div className="aero-window-titlebar">
-      <span>{title}</span>
-      <small>{meta}</small>
-    </div>
-  );
-}
-
 function StatusRow({ label, value }) {
   return (
-    <div className="aero-home-status-row">
-      <span>{label}</span>
-      <strong>{value}</strong>
+    <div className="flex items-center justify-between border-b border-white/10 pb-1.5">
+      <span className="text-white/70">{label}:</span>
+      <strong className="text-white font-medium">{value}</strong>
     </div>
   );
 }
